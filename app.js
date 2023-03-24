@@ -1,5 +1,5 @@
 function showEnglish() {
-    document.getElementById("engVer").style.display = "";
+    document.getElementById("engVer").style.display = "none";
     document.getElementById("chiVer").style.display = "none";
     document.getElementById("toptitle").innerHTML = "Fitness Walking Tracks";
     document.getElementById("engInput").style.display = "";
@@ -20,7 +20,6 @@ function showChinese() {
 function Area1() {
     var nameoflocation = "Central and Western";
     document.getElementById("myText").innerHTML = nameoflocation;
-    varName = "Central and Western"
     document.getElementById("engVer").style.display = "none";
     document.getElementById("chiVer").style.display = "none";
     document.getElementById("toptitle").innerHTML = "Fitness Walking Tracks";
