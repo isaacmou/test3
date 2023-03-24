@@ -18,8 +18,6 @@ function showChinese() {
 
 }
 function Area1() {
-    var nameoflocation = "Central and Western";
-    document.getElementById("myText").innerHTML = nameoflocation;
     document.getElementById("engVer").style.display = "none";
     document.getElementById("chiVer").style.display = "none";
     document.getElementById("toptitle").innerHTML = "Fitness Walking Tracks";
