@@ -1,6 +1,6 @@
 function showEnglish() {
     document.getElementById("engVer").style.display = "none";
-    document.getElementById ("DistrictArea").style.display="none";
+    document.getElementById ("btn1").style.display="none";
     document.getElementById("chiVer").style.display = "none";
     document.getElementById("toptitle").innerHTML = "Fitness Walking Tracks";
     document.getElementById("engInput").style.display = "";
