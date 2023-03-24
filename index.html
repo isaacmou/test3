@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Fitness Walking Tracks</title>
+
+        <link rel="stylesheet" href="style.css"> 
+    </head>
+
+    <body>
+        <script src="app.js"></script>
+        
+        <div class="demo-wrap">
+            <img
+              class="demo-bg"
+              src="banner.jpeg"
+            >
+
+            <div class="demo-content">
+            
+            <!--two button-->
+                <div id="changeLang">
+                    <input type="button" onclick="showEnglish()" value="English" class="btn">
+                    <input type="button" onclick="showChinese()" value="繁體中文" class="btn">
+                </div>
+
+            <!--search-->
+                <div id="seachBar">
+                    <input type="text" id="engInput" onkeyup="search()" placeholder="Search for Title.." title="Type in a title">
+                    <input type="text" id="chiInput" onkeyup="search()" placeholder="搜索路徑.." title="Type in a title">
+                </div>
+            <!--district-->
+                <div id="DistrictArea">
+                    <input type="button" id="btn1" onclick="Area1()" value="Central and Western" class="btn">
+                    <input type="button" id="btn2" onclick="Area2()" value="Wan Chai" class="btn">
+                    <input type="button" id="btn3" onclick="Area3()" value="Eastern" class="btn">
+                </div>        
+                <!--Southern, Wan Chai,Eastern,Sham Shui Po ,Yau Tsim Mong,Wong Tai Sin,Kwun Tong,Kowloon City,Tai Po,Sai Kung,Sha Tin Distict,Tuen Mun,Yuen Long,North,Tsuen Wan,Kwai Tsing,Islands-->
+            <!--title-->
+                <p id="toptitle">Fitness Walking Tracks</p>
+           
+            </div>
+        </div>
+
+
+        <div id="background">
+        <div id="engVer">
+            <table id = "tb1" border = "1">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>District</th>
+                        <th>Route</th>
+                        <th>HowToAccess</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <div id="chiVer">
+            <table id = "tb2" border = "1">
+                <thead>
+                    <tr>
+                        <th>路徑</th>
+                        <th>分區</th>
+                        <th>路徑資料</th>
+                        <th>前往途徑</th>
+                        <th>緯度</th>
+                        <th>經度</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div id="engVerwithdistrict">
+            <table id = "tb3" border = "1">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>District</th>
+                        <th>Route</th>
+                        <th>HowToAccess</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        </div>
+
+
+        <script>
+            document.getElementById("chiInput").style.display = "none";
+
+            fetch("mydata.json")
+                .then(response => response.json())
+                .then(data => {
+                    for (var i = 0; i<data.items.length; i++){
+                        let vTitle_en = data.items[i].Title_en;
+                        let vDistrict_en = data.items[i].District_en;
+                        let vRoute_en = data.items[i].Route_en;
+                        let vHowToAccess_en = data.items[i].HowToAccess_en;
+                        let vMapURL_en = data.items[i].MapURL_en;
+                        let vLatitude = data.items[i].Latitude;
+                        let vLongitude = data.items[i].Longitude;
+                            document.querySelector("#tb1").innerHTML += `
+                                <tbody>
+                                    <tr>
+                                        <td>${vTitle_en}</td>
+                                        <td>${vDistrict_en}</td>
+                                        <td>${vRoute_en}</td>
+                                        <td>${vHowToAccess_en}</td>
+                                        <td>${vLatitude}</td>
+                                        <td>${vLongitude}</td>
+                                    </tr>
+                                <tbody>`;
+                    }
+                })
+
+                fetch("mydata.json")
+                .then(response => response.json())
+                .then(data => {
+                    for (var i = 0; i<data.items.length; i++){
+                        let vTitle_tc = data.items[i].Title_tc;
+                        let vDistrict_tc = data.items[i].District_tc;
+                        let vRoute_tc = data.items[i].Route_tc;
+                        let vHowToAccess_tc = data.items[i].HowToAccess_tc;
+                        let vMapURL_tc = data.items[i].MapURL_tc;
+                        let vLatitude = data.items[i].Latitude;
+                        let vLongitude = data.items[i].Longitude;
+                            document.querySelector("#tb2").innerHTML += `
+                                <tbody>
+                                    <tr>
+                                        <td>${vTitle_tc}</td>
+                                        <td>${vDistrict_tc}</td>
+                                        <td>${vRoute_tc}</td>
+                                        <td>${vHowToAccess_tc}</td>
+                                        <td>${vLatitude}</td>
+                                        <td>${vLongitude}</td>
+                                    </tr>
+                                <tbody>`;
+                    }
+                })
+                fetch("mydata.json")
+                .then(response => response.json())
+                .then(data => {
+                    for (var i = 0; i<data.items.length; i++){    
+                        if(data.items[i].District_en == (id="mytext")){
+                            let vTitle_enwithdistrict = data.items[i].Title_en;
+                            let vDistrict_enwithdistrict = data.items[i].District_en;
+                            let vRoute_enwithdistrict = data.items[i].Route_en;
+                            let vHowToAccess_enwithdistrict = data.items[i].HowToAccess_en;
+                            let vMapURL_enwithdistrict = data.items[i].MapURL_en;
+                            let vLatitudewithdistrict = data.items[i].Latitude;
+                            let vLongitudewithdistrict = data.items[i].Longitude;
+                                document.querySelector("#tb3").innerHTML += `
+                                    <tbody>
+                                        <tr>
+                                            <td>${vTitle_enwithdistrict}</td>
+                                            <td>${vDistrict_enwithdistrict}</td>
+                                            <td>${vRoute_enwithdistrict}</td>
+                                            <td>${vHowToAccess_enwithdistrict}</td>
+                                            <td>${vLatitudewithdistrict}</td>
+                                            <td>${vLongitudewithdistrict}</td>
+                                        </tr>
+                                    <tbody>`;
+                        }
+                    }
+                  })
+        </script>
+    </body>
+
+</html>
