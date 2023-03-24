@@ -147,8 +147,9 @@
                 fetch("mydata.json")
                 .then(response => response.json())
                 .then(data => {
-                    for (var i = 0; i<data.items.length; i++){    
-                        if(data.items[i].District_en == (id="mytext")){
+                    for (var i = 0; i<data.items.length; i++){
+                        varname = id="mytext"
+                        if(data.items[i].District_en == varname){
                             let vTitle_enwithdistrict = data.items[i].Title_en;
                             let vDistrict_enwithdistrict = data.items[i].District_en;
                             let vRoute_enwithdistrict = data.items[i].Route_en;
