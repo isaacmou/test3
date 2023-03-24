@@ -148,7 +148,7 @@
                 .then(response => response.json())
                 .then(data => {
                     for (var i = 0; i<data.items.length; i++){    
-                        if(data.items[i].District_en == "Central and Western"){
+                        if(data.items[i].District_en == (id="mytext")){
                             let vTitle_enwithdistrict = data.items[i].Title_en;
                             let vDistrict_enwithdistrict = data.items[i].District_en;
                             let vRoute_enwithdistrict = data.items[i].Route_en;
